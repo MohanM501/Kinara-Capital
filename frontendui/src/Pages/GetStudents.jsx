@@ -3,24 +3,29 @@ import { useEffect,useState } from 'react';
 import axios from "axios";
 import {Table,Thead,Tbody,Tr,Th,Td,Input, Button, Heading, Select} from "@chakra-ui/react";
 import "./GetStudents.css";
-let url=`http://localhost:9001`
+let url=`https://real-tan-hippo.cyclic.app`
 
 const GetStudents = () => {
     const [page,setPage]=useState(1);
     const [pageSize,setPageSize]=useState(2);
     const [data,setData]=useState([]);
+    const [loading,setLoading]=useState(false);
 
     const [filterData,setfilterData]=useState({});
     const [isFilter,setFilter]=useState(false);
     
 
     const GET_API=()=>{
+        setLoading(true);
         axios.get(`${url}/load/${page}/${pageSize}`).then((r)=>{
             console.log(r.data.students,"r.data");
             setData(r.data.students);
+            setLoading(false);
         }).catch((err)=>{
             console.log(err,"err");
+            setLoading(false);
         })
+        
     }
 
     useEffect(()=>{
@@ -39,11 +44,15 @@ const GetStudents = () => {
     }
 
     const GET_FILTER_API=(obj)=>{
+        setLoading(true);
         axios.get(`${url}/filter`,{params:obj}).then((r)=>{
             setData(r.data.students);
+            setLoading(false);
         }).catch((err)=>{
             console.log(err,"err in filter request")
+            setLoading(false);
         })
+        
     }
 
     
@@ -86,7 +95,7 @@ const GetStudents = () => {
                         )
                     })
                 }  
-
+                {loading?<Heading color={"green"}>...Loading...</Heading>:""};
             </Tbody>
         </Table>
         <br/>

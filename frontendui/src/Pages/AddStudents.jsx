@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { Heading,Input,Button } from '@chakra-ui/react';
 import axios from 'axios';
-let url=`http://localhost:9001`;
+let url=`https://real-tan-hippo.cyclic.app`;
 
 const AddStudents = () => {
     const [data,setData]=useState({});
@@ -25,9 +25,9 @@ const AddStudents = () => {
         <br/>
         <Input onChange={handleChange} name="location" tye="string" placeholder='Enter Location'/>
         <br/>
-        <Input onChange={handleChange} name="Id"  type="string" placeholder='Enter Id'/>
+        <Input onChange={handleChange} name="id"  type="string" placeholder='Enter Id'/>
         <br/>
-        <Input onChange={handleChange} name="TotalMarks" type="number" placeholder='Enter TotalMarks'/>
+        <Input onChange={handleChange} name="totalMarks" type="number" placeholder='Enter TotalMarks'/>
         <br/>
         <Input onChange={handleChange} name="classNo" type="number" placeholder='Enter Class No'/>
         <br/>
