@@ -5,18 +5,19 @@ const FilterRouter=express.Router();
 
 
 FilterRouter.get("/",async(req,res)=>{
-    let {name,page_no,page_size}=req.query;
+    let {name,page_no,page_size,location}=req.query;
     let data={};
     // Storing all the query parameter which are not name page_no and page_size in data object for filtering;
 
     for (let keys in req.query){
-        if(keys!=="name" && keys!="page_no" && keys!="page_size"){
+        if(keys!=="name" && keys!="page_no" && keys!="page_size" && keys!="location"){
             data[keys]=req.query[keys];
         }
     }
     // This is to get all the names similar to typed names;
 
     let nam=name?{'name': {'$regex': name,$options:'i'}}:null;
+    let loc=location?{'location':{'$regex':location,$options:'i'}}:null;
 
     // This is getting page_no and page_size from the query if not default values will be applied
     page_no=Number(page_no)||1;
@@ -24,8 +25,8 @@ FilterRouter.get("/",async(req,res)=>{
    
     try {
         
-        const FilterData=await StudentModel.find({...data,...nam}).skip((page_no-1)*page_size).limit(page_size);
-        res.status(200).send({"Filtered":FilterData});
+        const FilterData=await StudentModel.find({...data,...nam,...loc}).skip((page_no-1)*page_size).limit(page_size);
+        res.status(200).send({"students":FilterData});
 
     } catch (error) {
         console.log(error,"err");
