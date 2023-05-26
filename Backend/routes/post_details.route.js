@@ -13,7 +13,7 @@ PostRouter.post("/",async(req,res)=>{
 
     } catch (error) {
         console.log(error,"err");
-        res.send({"msg":"Something went wrong with POST request"});
+        res.status(401).send({"msg":"Something went wrong with POST request"});
     }
 })
 

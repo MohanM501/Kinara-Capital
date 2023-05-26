@@ -9,6 +9,7 @@ const port=process.env.Port||9001;
 
 const app=express();
 
+// Cors allows access for all the sites to access the this server;
 app.use(cors({
     origin:"*"
 }))
@@ -28,8 +29,7 @@ app.use("/filter",FilterRouter)
 app.use("/post",PostRouter);
 
 
-
-
+// Listening to API
 app.listen(port,async()=>{
     try {
         await connection;
@@ -38,5 +38,5 @@ app.listen(port,async()=>{
         console.log(error);
         console.log("Failed to Connect");
     }
-    console.log("listening on port 9001")
+    console.log(`listening on port ${port}`)
 })
