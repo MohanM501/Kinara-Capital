@@ -26,7 +26,7 @@ The objective of this test assignment is to develop a grid system with filtering
 <p> - To filter dynamically from backend, used query params to filter name, classNo, location etc.</p>
 
 <h3>/post </h3>
-<p> - Additionally created the post route where is user can add students details through header body </p>
+<p> - Additionally created the post route where in user can add students details through header body </p>
 
 <h2>Screen shots from FrontEnd </h2>
 
