@@ -28,6 +28,14 @@ The objective of this test assignment is to develop a grid system with filtering
 <h3>/post </h3>
 <p> - Additionally created the post route where is user can add students details through header body </p>
 
+<h2>Screen shots from FrontEnd </h2>
+
+<h2>GET Student </h2>
+</hr>
+<img src="https://drive.google.com/uc?export=view&id=1X2Wx8Ml310hpudIvPhi9tG6ngpyM5zcm" style="width: 100%; height: auto" title="home screen." />
+</br>
+
+
 
 
 
