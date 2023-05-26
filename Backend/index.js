@@ -5,7 +5,7 @@ const { LoadRouter } = require("./routes/Load_details.route");
 const { PostRouter } = require("./routes/post_details.route");
 const { FilterRouter } = require("./routes/filter.route");
 require('dotenv').config();
-const port=process.env.Port||9002;
+const port=process.env.Port||9001;
 
 const app=express();
 
@@ -30,7 +30,7 @@ app.use("/post",PostRouter);
 
 
 
-app.listen(9001,async()=>{
+app.listen(port,async()=>{
     try {
         await connection;
         console.log("Connected to DB successfully")

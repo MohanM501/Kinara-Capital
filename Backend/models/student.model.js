@@ -5,7 +5,7 @@ const StudentSchema=mongoose.Schema({
     name:String,
     totalMarks:Number,
     location:String,
-    class:Number
+    classNo:Number
 })
 
 const StudentModel=mongoose.model("student",StudentSchema);
