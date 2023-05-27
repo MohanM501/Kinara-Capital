@@ -21,9 +21,11 @@ The objective of this test assignment is to develop a grid system with filtering
 
 <h3>/load</h3>
 <p>- To load all the students list based on two params 1. page_no & 2. page_size;</p>
+<p>/load/:page_no/:page_size </p>
 
 <h3>/filter</h3>
 <p> - To filter dynamically from backend, used query params to filter name, classNo, location etc.</p>
+<p>/filter?name=Mohan&location=bangalore </p>
 
 <h3>/post </h3>
 <p> - Additionally created the post route where in user can add students details through header body </p>
